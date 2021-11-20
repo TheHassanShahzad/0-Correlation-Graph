@@ -1,0 +1,18 @@
+from random import randint 
+#imports necessary library
+
+n = 10
+#number of coordinates to be generated
+
+coordinates = []
+#holds list of coordinates
+
+for val in range(0, n):
+  #for loop repeats n times
+  coordinate = [randint(0, 20), randint(0, 20)]
+  #coordinate has a randomly generated x and y value
+
+  coordinates.append(coordinate)
+  #every loop, the generated coordinate gets added to coordinates list
+
+print(coordinates)
