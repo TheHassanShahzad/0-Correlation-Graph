@@ -1,0 +1,49 @@
+from random import randint 
+import numpy as np
+import math
+#imports necessary library
+
+n = 10
+#number of coordinates to be generated
+
+coordinates = []
+#holds list of coordinates
+x = []
+y = []
+xy = []
+x2 = []
+y2 = []
+#holds values of x, y, xy x^2 and y^2
+
+for val in range(0, n):
+  #for loop repeats n times
+  coordinate = [randint(0, 20), randint(0, 20)]
+  #coordinate has a randomly generated x and y value
+
+  coordinates.append(coordinate)
+  #every loop, the generated coordinate gets added to coordinates list
+
+for val in range(0, len(coordinates)): #obtains x and y data from coordinates list
+  x.append(coordinates[val][0]) #x
+  y.append(coordinates[val][1]) #y
+  xy.append(coordinates[val][0]*coordinates[val][1]) #xy
+  x2.append(coordinates[val][0]**2) #x^2
+  y2.append(coordinates[val][1]**2) #y^2
+
+sumx = np.sum(x) #calculates sum of x
+sumy = np.sum(y) #calculates sum of y
+sumx2 = np.sum(x2) #calculates sum of x2
+sumy2 = np.sum(y2) #calculates sum of y2
+sumxy = np.sum(xy) #calculates sum of xy
+
+print(coordinates) #displays otained data
+print(x)
+print(y)
+print(x2)
+print(y2)
+
+print(sumx, sumy, sumx2, sumy2)
+
+ppc = ((n*sumxy) - (sumx*sumy))/(math.sqrt(((n*sumx2) - (sumx)**2)*((n*sumy2) - (sumy)**2))) #caulculates PPC
+
+print(ppc)
